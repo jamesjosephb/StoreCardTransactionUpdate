@@ -3,21 +3,12 @@ from GoogleSheetAccess import *
 import time
 
 
-
-        #insertEmail(MPMnumbers[i], Email)
-        #insertLname(MPMnumbers[i], LastName)
-        #insertFname(MPMnumbers[i], FirstName)
-
-        #time.sleep(1)
 def Main():
     driver = loginSupportDB()
     MPMnumbers = getMPMnumbersfromSpreadsheet()
-
-
     #print(MPMnumbers)
     for i in range(len(MPMnumbers)):
         switchMPMaccount(driver , MPMnumbers[i])
-
         # unquote below to fill in contact info too
         '''
         FirstName = getFname(driver)
@@ -45,19 +36,10 @@ def Main():
             if numerberOfTransactions > 99:
                 numerberOfTransactions = '+99'
         #print("Number: ", numerberOfTransactions , type(numerberOfTransactions))
-
-
         #print(numerberOfTransactions)
-
         insertNumTransactions(MPMnumbers[i], numerberOfTransactions)
-
-
         #insertEmail(MPMnumbers[i], Email)
         #insertLname(MPMnumbers[i], LastName)
         #insertFname(MPMnumbers[i], FirstName)
-
         #time.sleep(1)
-
-
-
 Main()
