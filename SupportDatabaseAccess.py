@@ -2,14 +2,14 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 import time
 import re
-
+import config
 
 def loginSupportDB():
     path = "./geckodriver"
     driver = webdriver.Firefox(executable_path=path)
     driver.get("https://www.mycryptopay.com/devel/genesys/index.php")
-    driver.find_element_by_name("username").send_keys("config.username")
-    driver.find_element_by_name("password").send_keys("config.password")
+    driver.find_element_by_name("username").send_keys(config.username)
+    driver.find_element_by_name("password").send_keys(config.password)
     driver.find_element_by_name("submit_login").click()
     return driver
 
